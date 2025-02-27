@@ -3,13 +3,19 @@ class Vehicle:
     self.brand = brand
     self.model = model
     self.year = year
-    self.rental_price_per_day = rental_price_per_day
+    self.__rental_price_per_day = rental_price_per_day
 
   def display_info(self):
-    print(f"{self.brand} {self.model}, Year: {self.year}, Rental price: {self.rental_price_per_day}$ /day")
+    print(f"{self.brand} {self.model}, Year: {self.year}, Rental price: {self.__rental_price_per_day}$ /day")
 
   def calculate_rental_cost(self, days):
-    return self.rental_price_per_day * days
+    return self.__rental_price_per_day * days
+  
+  def get_rental_cost(self):
+    return self.__rental_price_per_day
+  
+  def set_rental_price(self, new_price):
+     self.__rental_price_per_day = new_price
   
 class Car(Vehicle):
   def __init__(self, brand, model, year, rental_price_per_day, seating_capacity):
